@@ -1,0 +1,47 @@
+import { Injectable } from '@angular/core';
+import {Countries} from '../models/Countries';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+
+const httpOptions =
+  { headers: new HttpHeaders ({'ContentType' : 'application/json'}) };
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CountryService {
+
+  private baseUrl = 'http://localhost:8080/api/country/';
+  countrys:  Countries ;
+  handleErrors: any;
+  constructor(private http: HttpClient) { }
+
+
+
+  /*getBruit(id: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`, httpOptions ).pipe(map(bruit => bruit));
+  }
+
+  createBruit(bruit: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}` + `/create`, bruit, httpOptions);
+  }
+
+  updateBruit(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+
+  deleteBruit(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }*/
+
+  getCountryList() {
+    return this.http.get<Countries[]>(`${this.baseUrl}` , httpOptions);
+  }
+
+  getCountry(id: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}${id}`, httpOptions ).pipe ( map (coun => coun));
+  }
+ /* deleteAll(): Observable<any> {
+    return this.http.delete(`${this.baseUrl}` + `/delete`, { responseType: 'text' });
+  }*/}

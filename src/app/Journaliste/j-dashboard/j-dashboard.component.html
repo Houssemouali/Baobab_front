@@ -1,0 +1,43 @@
+<!--<div *ngFor="let art of articles ">
+
+  <p>  {{art.date }}</p>
+
+
+  <p> {{art.status}}</p>
+
+
+  1: {{art.author.surname }}
+
+</div>-->
+*********
+
+<table mdbTable>
+  <thead>
+  <tr>
+    <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr mdbTableCol *ngFor="let el of journalists ">
+
+
+    <th scope="row">{{el.idUser |number}}  </th>
+    <td>1{{el.username}}</td>
+<!--
+    <td [(ngModel)]="journalists.idUser" >2 {{var el = el;el}}</td>
+-->
+    <td>3{{el.status }}</td>
+
+    <td >4{{el.entrepriseActuelle}}</td>
+    <td>5{{el.motivationtext}}</td>
+    <td>8{{el.numtel}}</td>
+    <td>6{{el.experience}}</td>
+    <td>7{{el.dateNaissance}}</td>
+    <td>8{{el.name}}</td>
+    <td>9{{el.surname}}</td>
+    <td>10{{el.role}}</td>
+    <td><button type="button" mdbBtn color="default" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#basicExample" (click)="updateE(49)" mdbWavesEffect>Détails    </button> </td>
+
+  </tr>
+  </tbody>
+</table>

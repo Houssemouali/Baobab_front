@@ -1,0 +1,86 @@
+<app-menu > </app-menu>
+
+<div class="row">
+  <div class="col-md-10 mx-auto  mt-5">
+
+    <div class="container">
+
+
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+
+          <section class="magazine-section my-5">
+
+            <h4 class="font-weight-normal deep-orange-lighter-hover mb-2"> Lifestyle  </h4>
+            <div class="progress md-progress">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                   aria-valuemax="100"></div>
+            </div>
+
+
+
+            <div class="row" *ngFor="let artco of artLifestyle ">
+
+              <!-- Grid column -->
+              <div class="col-lg-5 col-xl-4">
+
+                <!-- Featured image -->
+                <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+                  <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image">
+                  <a>
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+
+              </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-lg-7 col-xl-8">
+
+                <div *ngFor="let ar of artco.contentDetails">
+                  <h3 class="font-weight-bold mb-3"><strong>{{ar.titre }}</strong></h3>
+                  <!-- Excerpt -->
+                  <p class="dark-grey-text">{{ar.content | slice : 0:300 }}</p>
+                  <!-- Post data -->
+                </div>
+                <p>by <a class="font-weight-bold">{{artco.author.name}}</a>, {{artco.date |date}}</p>
+                <!-- Read more button -->
+
+                <a class="btn btn-primary btn-md"routerLink="/article_details/{{artco.idArticle}}">Read more</a>
+
+
+                <div class="row">
+                  <hr class="my-5">
+                </div>
+
+
+              </div>
+              <!-- Grid column -->
+
+
+            </div>
+
+          </section>
+
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+
+  </div>
+
+</div>
+<app-footers> </app-footers>

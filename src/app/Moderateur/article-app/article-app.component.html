@@ -1,0 +1,183 @@
+<app-menu-mod> </app-menu-mod>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto mt-5">
+
+    </div>
+  </div>
+
+  <!-- Basic example -->
+  <div class="row">
+    <div class="col-md-12 mx-auto text-center mt-5">
+
+      <div class="card card-cascade narrower mt-5">
+
+        <!--Card image-->
+        <div class="view view-cascade gradient-card-header heavy-rain-gradient narrower py-4 mx-4 mb-3 d-flex justify-content-center align-items-center">
+
+          <h4 class="white-text font-weight-bold text-uppercase mb-0">Articles</h4>
+
+        </div>
+
+        <!--/Card image-->
+        <div class="row  d-flex align-items-center justify-content-center">
+          <div class="col-md-6 mx-auto">
+            <div class="md-form">
+              <input type="search" [(ngModel)]="searchText" id="search" class="form-control" mdbInputDirective [mdbValidate]="false">
+              <label for="search">Search data</label>
+            </div>
+          </div>
+          <div class="col-md-3 mx-auto">
+            <button class="btn btn-primary waves-light btn-sm" mdbWavesEffect >Generate CSV</button>
+          </div>
+        </div>
+        <div class="px-2">
+
+          <!--Table-->
+          <table class="table table-hover table-responsive-md mb-0">
+
+            <!--Table head-->
+            <thead>
+           <!-- <tr>
+              <th>id
+                <mdb-icon icon="sort" (click)="sortBy('id')"></mdb-icon>
+              </th>
+
+              <th>titre
+                <mdb-icon icon="sort" (click)="sortBy('titre')"></mdb-icon>
+              </th>
+              <th>Content
+                <mdb-icon icon="sort" (click)="sortBy('content')"></mdb-icon>
+              </th>
+
+
+              <th>Actions
+              </th>
+            </tr>-->
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+            <tr #list *ngFor="let data of search(); let i = index">
+<!--
+              <th *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex" scope="row">{{data.idArticle }}</th>
+-->
+              <th *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex" scope="row">{{data.date | date }}</th>
+              <th *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex" >{{data.author.name  | uppercase}} {{data.author.surname  | uppercase}} </th>
+<div *ngFor="let da of data.contentDetails">
+              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{da.titre | uppercase}}</td>
+              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{da.content| slice : 0:96 }}</td>
+</div>
+              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">
+                <span>
+              <a class="btn-floating  light-green mx-1"  (click)="showFrame(frame, data.date, data.author.name  , data.author.surname, data.contentDetails )">
+               <i class="fas fa-info"> </i>
+              </a>
+             <a class="btn-floating  teal mx-1"   (click)="update( data.idArticle)"  >
+              <i class="fas fa-check"></i>
+              </a>
+
+                </span>
+              </td>
+            </tr>
+            </tbody>
+            <!--Table body-->
+          </table>
+          <!--
+          (click)="frame.show()"
+          -->
+        </div>
+
+        <hr class="my-0">
+
+        <!--Bottom Table UI-->
+        <div class="d-flex justify-content-center">
+
+          <!--Pagination -->
+          <nav class="my-4 pt-2">
+            <ul class="pagination pagination-circle pg-purple mb-0">
+
+              <!--First-->
+              <li class="page-item clearfix d-none d-md-block" (click)="firstPage()" [ngClass]="{disabled: activePage == firstPageNumber}">
+                <a class="page-link">First</a>
+              </li>
+
+              <!--Arrow left-->
+              <li class="page-item" (click)="previousPage()" [ngClass]="{disabled: activePage == firstPageNumber}">
+                <a class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+
+              <!--Numbers-->
+              <li *ngFor="let page of paginators; let i = index" class="page-item" [ngClass]="{active: i+1 == activePage}">
+                <a class="page-link waves-light" (click)="changePage($event)" mdbWavesEffect>{{page}}</a>
+              </li>
+
+
+
+              <!--Arrow right-->
+              <li class="page-item" (click)="nextPage()" [ngClass]="{disabled: activePage == lastPageNumber}">
+                <a class="page-link" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+
+              <!--First-->
+              <li class="page-item clearfix d-none d-md-block" (click)="lastPage()" [ngClass]="{disabled: activePage == lastPageNumber}">
+                <a class="page-link">Last</a>
+              </li>
+
+            </ul>
+          </nav>
+          <!--/Pagination -->
+
+        </div>
+        <!--Bottom Table UI-->
+
+      </div>
+    </div>
+  </div>
+  <!-- Basic example -->
+
+  <hr class="my-5">
+</div>
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+  <div class="modal-dialog-centered modal-notify" role="document">
+    <div class="modal-content">
+      <div class="modal-header teal text-center">
+        <h4 class="modal-title w-100 text-white"> {{text1 | uppercase}} {{text2 | uppercase}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <div *ngFor="let t of text3">
+
+            <h3 class="mb-4 font-weight-bold dark-grey-text">
+              <strong>{{t.titre | uppercase}} ****</strong>
+            </h3>
+            <p> {{t.content}}</p>
+
+          </div>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <!-- <a type="button" mdbBtn color="success" class="waves-effect" mdbWavesEffect>Get it now
+           <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
+         </a>-->
+        <a type="button" mdbBtn color="success" outline="true" class="waves-effect" mdbWavesEffect (click)="frame.hide()">OK</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
