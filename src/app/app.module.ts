@@ -161,6 +161,7 @@ import { ArtEcoComponent } from './Component/art-eco/art-eco.component';
 import { ArtLifeComponent } from './Component/art-life/art-life.component';
 import { ArtTechComponent } from './Component/art-tech/art-tech.component';
 import { ArtEntrepriseComponent } from './Component/art-entreprise/art-entreprise.component';
+import { MediaComponent } from './Journaliste/media/media.component';
 
 
 @core.NgModule({
@@ -312,6 +313,7 @@ import { ArtEntrepriseComponent } from './Component/art-entreprise/art-entrepris
     ArtLifeComponent,
     ArtTechComponent,
     ArtEntrepriseComponent,
+    MediaComponent,
 
 
   ],

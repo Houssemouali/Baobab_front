@@ -3,7 +3,7 @@
 <footer class="page-footer fixed font-small special-color-dark pt-4">
 -->
 
-  <footer class="page-footer  font-small cyan darken-3">
+  <footer class="page-footer  font-small green darken-4">
   <!-- Footer Elements -->
   <div class="container">
     <div class="form-group">
@@ -142,7 +142,7 @@
 
                 <div class="md-form form-sm">
                   <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
-                  <input  type="text" class="form-control"  formControlName="password" placeholder="Password"      [(ngModel)]="journaliste.password"
+                  <input  type="text" class="form-control"  formControlName="password" placeholder="Password" [(ngModel)]="journaliste.password"
                           id="password"  [ngClass]="{ 'is-invalid': submitted && fl.password.errors }" />
                   <div *ngIf="submitted && fl.password.errors" class="invalid-feedback">
                     <div *ngIf="fl.password.errors.required">Password is required</div>

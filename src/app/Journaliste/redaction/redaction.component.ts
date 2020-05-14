@@ -140,10 +140,10 @@ export class RedactionComponent implements OnInit {
     //   this.article.categories = this.catchecked;
     //   console.log("categories===>"+JSON.stringify(this.article.categories));
     // });
-    let countries: {id: number} [] = [{id: this.article.country}];
+    //let countries: {id: number} [] = [{id: this.article.country}];
     delete this.article.country;
 
-    let tags: {id:number} [] = [{id: this.article.tags}];
+    //let tags: {id:number} [] = [{id: this.article.tags}];
     delete this.article.tags;
    
     // let languageArticles={id:this.article.content.languageArticle};
@@ -155,9 +155,9 @@ export class RedactionComponent implements OnInit {
     }];
     delete this.article.content;
     //add language article
-    this.article['tags'] = tags;
-    this.article['country'] = countries;
-    this.article['content'] = content;
+    //this.article['tags'] = tags;
+    //this.article['country'] = countries;
+    //this.article['content'] = content;
 
     this.articleService.AddArticle(this.article).subscribe(data => {
       var result=JSON.stringify(data);

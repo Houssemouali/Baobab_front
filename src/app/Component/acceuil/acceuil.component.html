@@ -54,8 +54,6 @@
 
 
                 <div class="single-news mb-lg-0 mb-4">
-
-
                   <div class="view overlay rounded z-depth-1-half mb-4">
                     <img class="img-fluid"  src="../../../assets/img/1.jpg" alt="Sample image">
                     <a>
@@ -118,12 +116,12 @@
                     <div class="col-md-9">
                       <div *ngFor="let at of artEnt.contentDetails">
                       <p class="font-weight-bold dark-grey-text">{{at.titre }}</p>
-                      <div class="d-flex justify-content-between">
-                        <div class="col-11 text-truncate pl-0 mb-3">
-                          <a  routerLink="/article_details/{{artEnt.idArticle}}" class="dark-grey-text">{{at.content | slice : 0:55 }} </a>
+                      <div class="d-flex justify-content-between" >
+                        <div class="col-11 text-truncate pl-0 mb-3" >
+                          <a routerLink="/article_details/{{artEnt.idArticle}}" class="dark-grey-text">{{at.content | slice : 0:55 }} </a>
                         </div>
                       </div>
-                        <a  routerLink="/article_details/{{artEnt.idArticle}}">
+                        <a routerLink="/article_details/{{artEnt.idArticle}}">
                           <i class="fa fa-angle-double-right" ></i>
                         </a>
                       </div>

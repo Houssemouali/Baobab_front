@@ -134,12 +134,13 @@ import {ArtEntrepriseComponent} from '../../Component/art-entreprise/art-entrepr
 import {ArtLifeComponent} from '../../Component/art-life/art-life.component';
 import {ArtTechComponent} from '../../Component/art-tech/art-tech.component';
 import {ArticleTags} from '../../models/Article_tags';
+import { MediaComponent } from 'src/app/Journaliste/media/media.component';
 const routes: Routes = [
 /*
   { path: ' ', component: RFNComponent },
 */
 
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardComponent},
 
   {
     path: 'css', component: CssMainComponent, children: [
@@ -319,14 +320,16 @@ const routes: Routes = [
 
   {path : 'dashboard', component: DashboardComponent ,
     children: [
-      {path : 'u_login', component: ULoginComponent }    ]
+      {path : 'u_login', component: ULoginComponent }
+         ]
   },
   { path: 'footers', component: FootersComponent },
   {path : 'acceuil', component: AcceuilComponent },
 
 
   { path: 'redaction', component: RedactionComponent },
-
+  
+  {path:'media',component: MediaComponent}, 
 
   //Article_property
 /*
@@ -393,7 +396,8 @@ const routes: Routes = [
       {
         path: 'j_liste/:idUser' ,
         component : JListeComponent
-      }]},
+      },
+    ]},
 
   { path:  'acceuil', component: AcceuilComponent,
     children: [
@@ -415,6 +419,12 @@ const routes: Routes = [
 
 
 ];
+
+RouterModule.forRoot([
+  {
+    path:'',component:AcceuilComponent,pathMatch:'full',
+  }
+])
 
 @NgModule({
   imports: [
