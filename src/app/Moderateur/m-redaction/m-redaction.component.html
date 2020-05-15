@@ -17,7 +17,7 @@
 
         <mdb-card-header class="deep-blue-gradient white-text text-center py-4">
           <h5>
-            <strong>Contact us</strong>
+            <strong>Add New Article:</strong>
           </h5>
         </mdb-card-header>
         <mdb-card-body class="px-lg-5 pt-0">
@@ -95,7 +95,14 @@
                             (change)="onContentChanged($event)"></quill-editor>
               {{editorContent}}
             </div>
-
+            <div class="row">
+              <div class="col-md-6 mx-auto mt-5">
+                <h4 class="text-center">Basic Example</h4>
+                <mdb-date-picker name="mydate" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>
+              </div>
+            </div>
+            <!-- Basic Example -->
+          
 
           </form>
         </mdb-card-body>

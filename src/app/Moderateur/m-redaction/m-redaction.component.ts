@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component,ViewChild, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {Article} from '../../models/Article';
 import {Countries} from '../../models/Countries';
 import {Category} from '../../models/Category';
 import {CategoryService} from '../../services/category.service';
+import { MDBDatePickerComponent, IMyOptions } from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-m-redaction',
@@ -17,6 +18,9 @@ export class MRedactionComponent implements OnInit {
   public editorOptions = {
     placeholder: 'insert content...'
   };
+  @ViewChild('datePicker') datePicker: MDBDatePickerComponent;
+  public myDatePickerOptions: IMyOptions = {};
+
   @Input() art: Article;
   articles: Article[];
   @Input()countries: Countries;

@@ -23,8 +23,13 @@ import { LanguageService } from 'src/app/services/language.service';
 export class RedactionComponent implements OnInit {
   public editor;
   public editorOptions = {
-    placeholder: 'insert content...'
+    placeholder: 'Type your post...',
+    theme:'snow'
   };
+  editorStyle={
+    height :'300px'
+  };
+
   private error: any;
   @Input() art: Article;
   articles: Article[];

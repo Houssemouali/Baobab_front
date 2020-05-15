@@ -1,11 +1,11 @@
 <app-menu-j> </app-menu-j>
 
-<div class="container">
+<div class="container my-5 ">
 
 
   <!-- Magazine newsfeed v.2 -->
   <div class="row">
-    <div class="col-md-12 mx-auto my-5">
+    <div class="col-md-12 my-5">
 
       <mdb-card>
 
@@ -21,7 +21,7 @@
 
             <div class="form-group row">
               ​
-              <label class="col-sm-2 col-form-label">countries </label>
+              <label class="col-sm-2 col-form-label">country </label>
               <div class="col-sm-4">
                 <div class="md-form mt-0">
                   <select class="browser-default custom-select" name="countries" #countries id="countries"
@@ -111,8 +111,14 @@
               <h2>Redact article</h2>
               <quill-editor [(ngModel)]="article.content.content" [(ngModeloptions]="editorOptions" name="quilleditor"
                 [ngModelOptions]="{standalone: true}" (blur)="onEditorBlured($event)" (focus)="onEditorFocused($event)"
-                (ready)="onEditorCreated($event)" (change)="onContentChanged($event)" #content></quill-editor>
+                (ready)="onEditorCreated($event)" [style]="editorStyle" (change)="onContentChanged($event)" #content></quill-editor>
               {{editorContent}}
+            </div>
+              
+            <div class="md-form mx-5 my-5">
+              <input placeholder="Date and Time" type="text" data-open="picker2" class="form-control date-time picker-opener">
+              <input placeholder="Selected date" type="text" id="picker2"  class="form-control time-date-ghost">
+              <input placeholder="Selected time" data-open="picker2" type="text" class="form-control timepicker time-date-ghost">
             </div>
 
             <button mdbbtn type="submit"> Post <mdb-icon fas icon="paper-plane"> </mdb-icon> </button>

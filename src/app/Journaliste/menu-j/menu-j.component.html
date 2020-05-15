@@ -62,15 +62,21 @@
             <!-- Simple link -->
             <mdb-accordion-item class="no-collase">
               <mdb-accordion-item-head mdbWavesEffect>
-                <a class="nav-link" routerLink="/j_profil"> <i class="fa fa-hand-pointer-o"></i> Profil </a>
+                 <i class="fa fa-chevron-right"></i> Posts 
               </mdb-accordion-item-head>
-              <mdb-accordion-item-body></mdb-accordion-item-body>
-            </mdb-accordion-item>
-            <mdb-accordion-item class="no-collase">
-              <mdb-accordion-item-head mdbWavesEffect>
-                <a class="nav-link" routerLink="/redaction"> <i class="fa fa-hand-pointer-o"></i> Post </a>
-              </mdb-accordion-item-head>
-              <mdb-accordion-item-body></mdb-accordion-item-body>
+              <mdb-accordion-item-body>
+                <ul>
+                  <li>
+                    <a class="nav-link" routerLink="/" mdbWavesEffect>All Posts </a>
+                  </li>
+                  <li>
+                    <a class="nav-link" routerLink="/redaction" mdbWavesEffect>Add New </a>
+                  </li>
+                  <li>
+                    <a class="nav-link" routerLink="/j_article" mdbWavesEffect>My Posts</a>
+                  </li>
+                </ul>
+              </mdb-accordion-item-body>
             </mdb-accordion-item>
             <mdb-accordion-item class="no-collase">
               <mdb-accordion-item-head mdbWavesEffect>
@@ -80,7 +86,7 @@
             </mdb-accordion-item>
             <mdb-accordion-item class="no-collase">
               <mdb-accordion-item-head mdbWavesEffect>
-                <a class="nav-link" routerLink="/j_article"> <i class="fa fa-hand-pointer-o"></i> My Articles </a>
+                <a class="nav-link" routerLink="/"> <i class="fa fa-hand-pointer-o"></i> My Articles </a>
               </mdb-accordion-item-head>
               <mdb-accordion-item-body></mdb-accordion-item-body>
             </mdb-accordion-item>
@@ -91,7 +97,22 @@
               </mdb-accordion-item-head>
               <mdb-accordion-item-body></mdb-accordion-item-body>
             </mdb-accordion-item>
-          </mdb-accordion>
+
+          <mdb-accordion-item class="no-collase">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="nav-link" routerLink="/"> <i class="fa fa-hand-pointer-o"></i> Categories </a>
+            </mdb-accordion-item-head>
+            <mdb-accordion-item-body></mdb-accordion-item-body>
+          </mdb-accordion-item>
+          
+          <mdb-accordion-item class="no-collase">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="nav-link" routerLink="/"> <i class="fa fa-hand-pointer-o"></i> Tags </a>
+            </mdb-accordion-item-head>
+            <mdb-accordion-item-body></mdb-accordion-item-body>
+          </mdb-accordion-item>
+
+        </mdb-accordion>
         </ul>
       </li>
       <!--/. Side navigation links -->
@@ -101,7 +122,7 @@
   <!--/. Sidebar navigation -->
 
   <!-- Navbar -->
-  <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav"
+  <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav white"
     [containerInside]="false">
 
     <navlinks class="navbar-container">
@@ -119,7 +140,7 @@
     <mdb-navbar-brand>
       <!-- Breadcrumb-->
       <div class="breadcrumbs breadcrumbs-non-fixed breadcrumb-dn mr-auto">
-        <p>Journalist</p>
+        <p>Journalist space </p>
       </div>
       <!--/. Breadcrumb-->
     </mdb-navbar-brand>
@@ -139,7 +160,7 @@
               Account
             </a>
             <div class="dropdown-menu dropdown-primary dropdown-menu-right" role="menu">
-              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" routerLink="/j_profil">Profile</a>
               <a class="dropdown-item" href="#">Logout</a>
             </div>
           </li>
