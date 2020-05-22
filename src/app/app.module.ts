@@ -162,6 +162,8 @@ import { ArtLifeComponent } from './Component/art-life/art-life.component';
 import { ArtTechComponent } from './Component/art-tech/art-tech.component';
 import { ArtEntrepriseComponent } from './Component/art-entreprise/art-entreprise.component';
 import { MediaComponent } from './Journaliste/media/media.component';
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { AllArticlesComponent } from './Journaliste/all-articles/all-articles.component';
 
 
 @core.NgModule({
@@ -314,6 +316,7 @@ import { MediaComponent } from './Journaliste/media/media.component';
     ArtTechComponent,
     ArtEntrepriseComponent,
     MediaComponent,
+    AllArticlesComponent,
 
 
   ],
@@ -323,6 +326,8 @@ import { MediaComponent } from './Journaliste/media/media.component';
     FormsModule,
     HttpModule,
     HttpClientModule,
+    DlDateTimeDateModule,  // <--- Determines the data type of the model
+    DlDateTimePickerModule,
     ToastModule.forRoot(),
     ChartsModule,
     QuillModule.forRoot(),

@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ArticleService {
-private baseURL = 'http://localhost:8080/api/article/';
+private baseURL = 'http://127.0.0.1:8000/api/articles/';
 private article: Article;
 private ContentDetails: ContentDetails;
   constructor(private http: HttpClient) { }
@@ -22,6 +22,10 @@ private ContentDetails: ContentDetails;
 
   DeleteArticle(id: number ): Observable<Object> {
     return this.http.delete(this.baseURL + id);
+  }
+
+  getByCat(id:number):Observable<Object>{
+    return this.http.get(this.baseURL+'byCat/'+id);
   }
 
   getAll(): Observable <Object> {

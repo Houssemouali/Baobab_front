@@ -8,18 +8,24 @@ import {ArticleContent} from './Article_content';
 import {ArticleCountry} from './ArtcileCountry';
 
 export class Article {
-  idArticle: any;
-    date: Date;
+  id: any;
+    publish_date: Date;
+    writer_id:any;
+    is_active:any;
+    is_ready:any;
+    //created_at:Date;
+    //updated_at:Date;
   content: ContentDetails;
-    author: JournalistSignup;
-    link: string;
-    status: any;
-  articleCountry: ArticleCountry;
-  country: Countries;
-  tags: Tags;
-  articletags: ArticleTags;
+    user: JournalistSignup;
+    tags: Tags;
+
+    //link: string;
+    //status: any;
+  //articleCountry: ArticleCountry;
+  //country: Countries;
+  //articletags: ArticleTags;
   category: Category;
-  article_content: ArticleContent;
+  //article_content: ArticleContent;
 
   constructor() {
     this.content = new ContentDetails();

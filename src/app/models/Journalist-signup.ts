@@ -1,21 +1,28 @@
+import { SocialMedia } from "./SocialMedia";
+
 export class JournalistSignup  {
-idUser: any ;
-    id: any;
+  id: any;
   name: string;
-  surname: string;
-   username: any;
-    email: string;
+  email: string;
+  username: any;
+  password: string;
+  type_id:any;
+  iName:string;
+  adress:string;
+  bio:string;
+  is_active:boolean;
+  phone:string;
   role: string[] ;
-password: string;
-    actualEntreprise: any;
-   nationality: string;
-    experience: any;
-  dateNaissance: any ;
- numtel: string;
-  motivationtext: any;
-  status : any;
-  cv: File;
-  portefolio: File;
+  socialMedia:SocialMedia;
+//     actualEntreprise: any;
+//    nationality: string;
+//     experience: any;
+//   dateNaissance: any ;
+//  numtel: string;
+//   motivationtext: any;
+//   status : any;
+//   cv: File;
+//   portefolio: File;
 
   constructor(role: string) {
     this.role = ['journaliste'];

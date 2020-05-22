@@ -15,6 +15,8 @@ import { Category } from 'src/app/models/Category';
 import { CategoryService } from 'src/app/services/category.service';
 import {ArticleCountry} from '../../models/ArtcileCountry';
 import { LanguageService } from 'src/app/services/language.service';
+import { IMyOptions, MDBDatePickerComponent, ClockPickerComponent } from 'ng-uikit-pro-standard';
+
 @Component({
   selector: 'app-redaction',
   templateUrl: './redaction.component.html',
@@ -29,6 +31,10 @@ export class RedactionComponent implements OnInit {
   editorStyle={
     height :'300px'
   };
+
+  @ViewChild('input') input: ElementRef;
+  @ViewChild('datePicker') datePicker: MDBDatePickerComponent;
+  @ViewChild('timePicker') timePicker: ClockPickerComponent;
 
   private error: any;
   @Input() art: Article;
@@ -70,6 +76,18 @@ export class RedactionComponent implements OnInit {
      private toastrService: ToastService,
      private langService:LanguageService) {}
 
+     public myDatePickerOptions: IMyOptions = {
+      // Your options
+    };
+    onDateChange = (event: { actualDateFormatted: string; }) => {
+      this.input.nativeElement.value = event.actualDateFormatted; // set value to input
+      this.datePicker.closeBtnClicked(); // close date picker
+      this.timePicker.openBtnClicked(); // open time picker
+    };
+  
+    onTimeChange = (event: string) => {
+      this.input.nativeElement.value = `${this.input.nativeElement.value}, ${event}`; // set value to input
+    };
   ngOnInit() {
     setTimeout(() => {
       console.log('you can use the quill instance object to do something', this.editor);
@@ -98,7 +116,8 @@ export class RedactionComponent implements OnInit {
         console.log(datq);
         this.languagess=datq;
       })  
-  }
+    }
+
 
   get f() {
     return this.articleform.controls;

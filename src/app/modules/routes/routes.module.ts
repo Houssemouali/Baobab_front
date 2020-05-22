@@ -135,6 +135,7 @@ import {ArtLifeComponent} from '../../Component/art-life/art-life.component';
 import {ArtTechComponent} from '../../Component/art-tech/art-tech.component';
 import {ArticleTags} from '../../models/Article_tags';
 import { MediaComponent } from 'src/app/Journaliste/media/media.component';
+import { AllArticlesComponent } from 'src/app/Journaliste/all-articles/all-articles.component';
 const routes: Routes = [
 /*
   { path: ' ', component: RFNComponent },
@@ -328,7 +329,7 @@ const routes: Routes = [
 
 
   { path: 'redaction', component: RedactionComponent },
-  
+  {path:'AllPosts',component:AllArticlesComponent},
   {path:'media',component: MediaComponent}, 
 
   //Article_property
