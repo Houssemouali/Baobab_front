@@ -28,32 +28,21 @@
               </span>
               <table class="table table-bordered table-responsive-md table-striped text-center">
                 <tr>
-                  <th class="text-center">Person Name</th>
-                  <th class="text-center">Age</th>
+                  <th class="text-center">id</th>
+                  <th class="text-center">name</th>
                   <!-- <th class="text-center">Company Name</th>
                   <th class="text-center">Country</th>
                   <th class="text-center">City</th>
                   <th class="text-center">Sort</th> -->
                   <th class="text-center">Remove</th>
                 </tr>
-                <tr *ngFor="let person of personList; let id = index">
-                  <td contenteditable="true" (keyup)="changeValue(id, 'name', $event)">{{person.name}}</td>
-                  <td contenteditable="true" (keyup)="changeValue(id, 'age', $event)">{{person.age}}</td>
+                <tr *ngFor="let data of search(); let id = index">
+                  <td contenteditable="true" (keyup)="changeValue(id, 'id', $event)">{{data.id}}</td>
+                  <td contenteditable="true" (keyup)="changeValue(id, 'name', $event)">{{data.name}}</td>
                   <!-- <td contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)">{{person.companyName}}</td>
                   <td contenteditable="true" (keyup)="changeValue(id, 'country', $event)">{{person.country}}</td>
                   <td contenteditable="true" (keyup)="changeValue(id, 'city', $event)">{{person.city}}</td> -->
-                  <td>
-                    <span class="table-up">
-                      <a class="indigo-text">
-                        <mdb-icon icon="long-arrow-up"></mdb-icon>
-                      </a>
-                    </span>
-                    <span class="table-down">
-                      <a class="indigo-text">
-                        <mdb-icon icon="long-arrow-down"></mdb-icon>
-                      </a>
-                    </span>
-                  </td>
+               
                   <td>
                     <span class="table-remove">
                       <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
@@ -67,7 +56,7 @@
         <!-- Editable table -->
     <!-- Basic example -->
   
-    <hr class="my-5">
+    <!-- <hr class="my-5"> -->
   </div>
   </div>    
   </div>

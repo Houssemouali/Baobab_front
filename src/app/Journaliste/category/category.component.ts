@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-category',
@@ -7,41 +8,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
   editField: string;
-  personList: Array<any> = [
-    { id: 1, name: 'Aurelia Vega', age: 30, companyName: 'Deepends', country: 'Spain', city: 'Madrid' },
-    { id: 2, name: 'Guerra Cortez', age: 45, companyName: 'Insectus', country: 'USA', city: 'San Francisco' },
-    { id: 3, name: 'Guadalupe House', age: 26, companyName: 'Isotronic', country: 'Germany', city: 'Frankfurt am Main' },
-    { id: 4, name: 'Aurelia Vega', age: 30, companyName: 'Deepends', country: 'Spain', city: 'Madrid' },
-    { id: 5, name: 'Elisa Gallagher', age: 31, companyName: 'Portica', country: 'United Kingdom', city: 'London' },
-  ];
+  tableData: Array<any> = [];
+  searchText: string;
 
-  awaitingPersonList: Array<any> = [
-    { id: 6, name: 'George Vega', age: 28, companyName: 'Classical', country: 'Russia', city: 'Moscow' },
-    { id: 7, name: 'Mike Low', age: 22, companyName: 'Lou', country: 'USA', city: 'Los Angeles' },
-    { id: 8, name: 'John Derp', age: 36, companyName: 'Derping', country: 'USA', city: 'Chicago' },
-    { id: 9, name: 'Anastasia John', age: 21, companyName: 'Ajo', country: 'Brazil', city: 'Rio' },
-    { id: 10, name: 'John Maklowicz', age: 36, companyName: 'Mako', country: 'Poland', city: 'Bialystok' },
-  ];
+
   remove(id: any) {
-    this.awaitingPersonList.push(this.personList[id]);
-    this.personList.splice(id, 1);
+    // this.updateEtat(this.id);
+    this.tableData.push(this.tableData[id]);
+    this.tableData.splice(id, 1);
   }
 
-  add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.personList.push(person);
-      this.awaitingPersonList.splice(0, 1);
+ 
+  constructor(private categryService:CategoryService) { }
+
+  ngOnInit() {
+    this.categryService.getCategoryList().subscribe((next:any)=>{
+      next.foreach((element:any)=>{
+        this.tableData.push({
+          id:element.id,
+          is_active:element.is__active,
+          name:element.cat_texts.name
+        }
+          );
+      });
+    });
+  }
+
+
+  filterIt(arr: any, searchKey: any) {
+    return arr.filter((obj: any) => {
+      return Object.keys(obj).some((key) => {
+        return obj[key].includes(searchKey);
+      });
+    });
+  }
+
+  search() {
+    if (!this.searchText) {
+      return this.tableData;
+    }
+    if (this.searchText) {
+      return this.filterIt(this.tableData, this.searchText);
     }
   }
 
-  changeValue(id: number, property: string, event: any) {
-    this.editField = event.target.textContent;
-    this.personList[id][property] = this.editField;
-  }
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
