@@ -24,7 +24,7 @@ export class JDashboardComponent implements OnInit {
   private user: any;
   private role: string;
   journaliste: JournalistSignup = new JournalistSignup(this.role);
-  private etat = 'valid';
+  private etat = true;
 
 
   constructor(private articleService: ArticleService, private journalistService: JournalistService,  private _router: Router) {
@@ -47,9 +47,9 @@ export class JDashboardComponent implements OnInit {
 
 
   updateE(idUser: any) {
-    this.journalistService.updateJ(this.journaliste.idUser,
+    this.journalistService.updateJ(this.journaliste.id,
       {name: this.journaliste.name,
-        status: this.journaliste.status  = this.etat} ).subscribe(data => {
+        status: this.journaliste.is_active  = this.etat} ).subscribe(data => {
       console.log(data);
       this.journaliste = data as JournalistSignup;
       this._router.navigate(['/j_liste']);

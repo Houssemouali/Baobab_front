@@ -164,6 +164,8 @@ import { ArtEntrepriseComponent } from './Component/art-entreprise/art-entrepris
 import { MediaComponent } from './Journaliste/media/media.component';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import { AllArticlesComponent } from './Journaliste/all-articles/all-articles.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { CategoryComponent } from './Journaliste/category/category.component';
 
 
 @core.NgModule({
@@ -317,6 +319,8 @@ import { AllArticlesComponent } from './Journaliste/all-articles/all-articles.co
     ArtEntrepriseComponent,
     MediaComponent,
     AllArticlesComponent,
+    NotfoundComponent,
+    CategoryComponent,
 
 
   ],
