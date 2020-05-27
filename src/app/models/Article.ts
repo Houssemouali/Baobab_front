@@ -22,7 +22,7 @@ export class Article {
     //link: string;
     //status: any;
   //articleCountry: ArticleCountry;
-  //country: Countries;
+  country: Countries;
   //articletags: ArticleTags;
   category: Category;
   //article_content: ArticleContent;

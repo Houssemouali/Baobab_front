@@ -10,12 +10,15 @@ const httpOptions =
   providedIn: 'root'
 })
 export class CategoryService {
-  private baseUrl = 'http://localhost:8000/api/attribs/category';
+  private baseUrl = 'http://localhost:8000/api/attribs/categories';
   category:  Category ;
   constructor(private http: HttpClient) { }
   
   getCategoryList() {
     return this.http.get<Category[]>(`${this.baseUrl}` , httpOptions);
+  }
+  getAllCategory() {
+    return this.http.get(`${this.baseUrl}` + `/`);
   }
   getCategory(id: any ): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);

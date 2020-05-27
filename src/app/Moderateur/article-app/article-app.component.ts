@@ -165,7 +165,7 @@ search() {
 
     this.articleService.Update(idArticle,
       {
-        status: art.status
+        status: art.is_active
       }).subscribe(data => {
       console.log(data);
       this.article = data as Article;

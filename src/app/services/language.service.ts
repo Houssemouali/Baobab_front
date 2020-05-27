@@ -10,7 +10,7 @@ const httpOptions =
   providedIn: 'root'
 })
 export class LanguageService {
-  private baseURL='http://localhost:8080/api/language/'
+  private baseURL='http://localhost:8000/api/attribs/language/'
   language:Language;
   handleErrors: any;
 

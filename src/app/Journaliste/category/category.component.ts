@@ -22,15 +22,16 @@ export class CategoryComponent implements OnInit {
   constructor(private categryService:CategoryService) { }
 
   ngOnInit() {
-    this.categryService.getCategoryList().subscribe((next:any)=>{
+    this.categryService.getAllCategory().subscribe((next:any)=>{
       next.foreach((element:any)=>{
         this.tableData.push({
           id:element.id,
           is_active:element.is__active,
-          name:element.cat_texts.name
+          name:element.name
         }
           );
       });
+      //console.log(next);
     });
   }
 
