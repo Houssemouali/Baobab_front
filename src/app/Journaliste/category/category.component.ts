@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
+import { Category } from 'src/app/models/Category';
 
 @Component({
   selector: 'app-category',
@@ -10,7 +11,7 @@ export class CategoryComponent implements OnInit {
   editField: string;
   tableData: Array<any> = [];
   searchText: string;
-
+  category:Category=new Category();
 
   remove(id: any) {
     // this.updateEtat(this.id);
@@ -23,15 +24,16 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.categryService.getAllCategory().subscribe((next:any)=>{
-      next.foreach((element:any)=>{
+      next.forEach((element:any)=>{
         this.tableData.push({
           id:element.id,
-          is_active:element.is__active,
-          name:element.name
+          is_active:element.is_active,
+          created_at:element.created_at,
+          cat_texts:element.cat_texts
         }
           );
+          console.log('category:', element.cat_texts);
       });
-      //console.log(next);
     });
   }
 
@@ -51,6 +53,16 @@ export class CategoryComponent implements OnInit {
     if (this.searchText) {
       return this.filterIt(this.tableData, this.searchText);
     }
+  }
+  addCategory(){
+  this.categryService.AddCategory(this.category).subscribe(data=>{
+    var result=JSON.stringify(data);
+    console.log('category insertion',result);
+    this.category=data as Category;
+    JSON.stringify(data);
+    console.log(JSON.stringify(data));
+  });
+  this.category=new Category();
   }
 
 

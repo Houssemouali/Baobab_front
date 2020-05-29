@@ -8,11 +8,13 @@
   <div class="row">
     <div class="col-md-6 mt-5 px-2">
       <h4 class="text-left">Add New Category</h4>
+     <form (ngSubmit)="addCategory()">
       <div class="md-form">
         <input mdbInputDirective type="text" id="form1" class="form-control">
         <label for="form1">Category label</label>
         <input type="submit" id="submit-category"  style="width: 200px;">
       </div>
+      </form>
     </div>
       <div class="col-md-12 mx-auto text-center mt-5 vl">
         <!-- Editable table -->
@@ -30,15 +32,19 @@
                   <th class="text-center">id</th>
                   <th class="text-center">name</th>
                   <th class="text-center">Is Active</th>
-                  <!-- <th class="text-center">Country</th>
-                  <th class="text-center">City</th>
+                 <th class="text-center">Created_at</th>
+                   <!-- <th class="text-center">City</th>
                   <th class="text-center">Sort</th>  -->
                   <th class="text-center">Remove</th>
                 </tr>
                 <tr *ngFor="let data of search(); let id = index">
                   <td contenteditable="true" (keyup)="changeValue(id, 'id', $event)">{{data.id}}</td>
-                  <td contenteditable="true" (keyup)="changeValue(id, 'name', $event)">{{data.cat_texts.name}}</td>
-                   <td contenteditable="true" (keyup)="changeValue(id, 'is_active', $event)">{{data.is_active}}</td>
+                   <div style="margin: auto; " *ngFor="let cat of data.cat_texts ">
+                  <td class="col-ctr" contenteditable="true" (keyup)="changeValue(id, 'name', $event)">{{cat.name}}</td>
+                </div>
+                  <td contenteditable="true" (keyup)="changeValue(id, 'is_active', $event)">{{data.is_active}}</td>     
+                  <td contenteditable="false" (keyup)="changeValue(id, 'created_at', $event)">{{data.created_at |date}}</td>
+
                   <!--<td contenteditable="true" (keyup)="changeValue(id, 'country', $event)">{{person.country}}</td>
                   <td contenteditable="true" (keyup)="changeValue(id, 'city', $event)">{{person.city}}</td> -->
                

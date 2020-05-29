@@ -194,7 +194,7 @@ export class InscritAppComponent implements OnInit {
     this.journalisteService.Update(idUser,
       {
         name: journalist.name,
-        status: journalist.status
+        status: journalist.is_active
       }).subscribe(data => {
       console.log(data);
       this.journaliste = data as JournalistSignup;

@@ -14,6 +14,10 @@ export class CategoryService {
   category:  Category ;
   constructor(private http: HttpClient) { }
   
+ AddCategory(category:Object):Observable<Object>{
+  return this.http.post(`${this.baseUrl}` ,category);
+ }
+
   getCategoryList() {
     return this.http.get<Category[]>(`${this.baseUrl}` , httpOptions);
   }
