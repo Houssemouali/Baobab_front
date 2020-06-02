@@ -178,6 +178,11 @@ export class RedactionComponent implements OnInit {
         id:this.article.content.languageArticle}
     }];
     delete this.article.content;
+
+    let usr_id:{}[]=[{
+      id:this.article.user.id
+    }];
+    delete this.article.user;
     //add language article
     //this.article['tags'] = tags;
     //this.article['country'] = countries;

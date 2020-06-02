@@ -183,34 +183,6 @@ export class ArtcileSuppComponent implements OnInit {
 
     });
   }
-/*
-  get input() { return this.validatingForm.get('bruit'); }
-*/
-  /* calculAge() :void
-  {if (this.date_naissance)
-  {var timeDiff = Math.abs(Date.now()- new Date(this.date_naissance).getTime());
-    this.age= Math.floor(timeDiff/(1000*3600*24)/365.25);
-  }
-  } */
-  /*liste()
-  { this.journalisteService.getBruitsList().subscribe((next: any) => {
-    next.forEach((element: any) => {
-      this.tableData.push({  id: (element.id).toString(), libelle: element.libelle});
-    });
-  });}*/
- /* save() {
-    this.bruitService.createBruit(this.bruits).subscribe( data => {  console.log(data); this.bruits = data as Bruit; } ) ;
-    //      this.patientService.createPatient(this.patient).subscribe(dat =>  this.patient = dat);
-    this.bruits = new Bruit();
-    this.reloadComponent();
-  }*/
-
- /* reloadComponent() {
-    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.liste();
-    this._router.onSameUrlNavigation = 'reload';
-    this._router.navigate(['/bruit']);
-  }*/
 
   addNewRow() {
     this.mdbTable.addRow({

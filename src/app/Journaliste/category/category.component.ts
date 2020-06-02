@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/Category';
+import { LanguageService } from 'src/app/services/language.service';
+import { Language } from 'src/app/models/Language';
 
 @Component({
   selector: 'app-category',
@@ -12,7 +14,7 @@ export class CategoryComponent implements OnInit {
   tableData: Array<any> = [];
   searchText: string;
   category:Category=new Category();
-
+  languagess:Language[];
   remove(id: any) {
     // this.updateEtat(this.id);
     this.tableData.push(this.tableData[id]);
@@ -20,7 +22,8 @@ export class CategoryComponent implements OnInit {
   }
 
  
-  constructor(private categryService:CategoryService) { }
+  constructor(private categryService:CategoryService,
+    private languageService:LanguageService) { }
 
   ngOnInit() {
     this.categryService.getAllCategory().subscribe((next:any)=>{
@@ -35,6 +38,11 @@ export class CategoryComponent implements OnInit {
           console.log('category:', element.cat_texts);
       });
     });
+
+    // this.languageService.getLanguageList().subscribe(datq=>{
+    //   console.log(datq);
+    // this.languagess=datq;
+    // })
   }
 
 
@@ -55,15 +63,18 @@ export class CategoryComponent implements OnInit {
     }
   }
   addCategory(){
+
+  let language=this.category.cat_texts.lang_id.id;
+  delete this.category.cat_texts;
+
   this.categryService.AddCategory(this.category).subscribe(data=>{
-    var result=JSON.stringify(data);
-    console.log('category insertion',result);
-    this.category=data as Category;
+  var result=JSON.stringify(data);
+  console.log('category insertion',result);
+  this.category=data as Category;
     JSON.stringify(data);
     console.log(JSON.stringify(data));
   });
   this.category=new Category();
   }
-
 
 }

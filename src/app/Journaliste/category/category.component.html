@@ -9,11 +9,24 @@
     <div class="col-md-6 mt-5 px-2">
       <h4 class="text-left">Add New Category</h4>
      <form (ngSubmit)="addCategory()">
+
+     
+
       <div class="md-form">
         <input mdbInputDirective type="text" id="form1" class="form-control">
         <label for="form1">Category label</label>
         <input type="submit" id="submit-category"  style="width: 200px;">
       </div>
+
+      <!-- <label class="col-sm-2 col-form-label">Language </label>
+      <div class="col-sm-4">
+        <div class="md-form mt-0">
+          <select class="browser-default custom-select" [(ngModel)]="category.cat_texts.lang_id" name="languages"
+            id="categories">
+            <option *ngFor="let lang of languages | async" [ngValue]="[lang.id]">{{lang.name}}</option>
+          </select>​
+        </div>
+      </div> -->
       </form>
     </div>
       <div class="col-md-12 mx-auto text-center mt-5 vl">
