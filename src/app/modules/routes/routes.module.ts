@@ -334,7 +334,8 @@ const routes: Routes = [
   {path:'AllPosts',component:AllArticlesComponent},
   {path:'media',component: MediaComponent}, 
   {path:'j_categories',component:CategoryComponent},
-  {path:'**',component:NotfoundComponent},
+  {path : 'j_login', component: JLoginComponent },
+
   //Article_property
 /*
   {path : 'article_details', component: ArticleDetailsComponent } ,
@@ -343,7 +344,7 @@ const routes: Routes = [
   //Journaliste
   {path : 'auteur', component: AuteurComponent } ,
   {path : 'j_sign_up', component: JSignUpComponent } ,
-  {path : 'j_login', component: JLoginComponent },
+  // {path : 'j_login', component: JLoginComponent },
   {path : 'j_dashboard', component: JDashboardComponent },
   { path: 'j_profil', component: JProfilComponent },
   { path: 'j_article', component: JArticleComponent },
@@ -420,7 +421,7 @@ const routes: Routes = [
     component: AuteurComponent
   },
   { path: 'article_tags', component: ArticleTags },
-
+  {path:'**',component:NotfoundComponent}
 
 ];
 

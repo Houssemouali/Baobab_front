@@ -32,11 +32,11 @@
 
                   <div class="col-md-12">
                     <div class="md-form mb-0">
-                      <input type="text" class="form-control" formControlName="username" placeholder="Email"
-                        [(ngModel)]="journalist.username" id="username"
+                      <input type="text" class="form-control" formControlName="email" placeholder="Email"
+                        [(ngModel)]="journalist.email" id="username"
                         [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                        <div *ngIf="f.username.errors.required">Username is required</div>
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">email is required</div>
                       </div>
 
                     </div>

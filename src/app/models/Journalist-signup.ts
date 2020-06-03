@@ -10,8 +10,9 @@ export class JournalistSignup  {
   iName:string;
   adress:string;
   bio:string;
-  is_active:boolean;
+  is_active:number;
   phone:string;
+  token:string;
   role: string[] ;
   socialMedia:SocialMedia;
 //     actualEntreprise: any;
@@ -24,8 +25,8 @@ export class JournalistSignup  {
 //   cv: File;
 //   portefolio: File;
 
-  constructor(role: string) {
-    this.role = ['journaliste'];
-    }
+  // constructor(role: string) {
+  //   this.role = ['journaliste'];
+  //   }
 
 }

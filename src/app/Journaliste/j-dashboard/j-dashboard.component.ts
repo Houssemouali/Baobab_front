@@ -24,7 +24,7 @@ export class JDashboardComponent implements OnInit {
   private user: any;
   private role: string;
   journaliste: JournalistSignup = new JournalistSignup(this.role);
-  private etat = true;
+  private etat = 1;
 
 
   constructor(private articleService: ArticleService, private journalistService: JournalistService,  private _router: Router) {

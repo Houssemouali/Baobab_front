@@ -15,7 +15,7 @@ const httpOptions = { headers: new HttpHeaders ({'ContentType' : 'application/js
 export class JournalistService  {
 
 
-  private baseUrl = 'http://localhost:8080/journalist/auth';
+  private baseUrl = 'http://localhost:8000/api/auth';
 
   private baseURl = 'http://localhost:8080/api/journalist' ;
   constructor(private http: HttpClient) {
@@ -28,8 +28,8 @@ export class JournalistService  {
   }
 
 
-  signInJournalist(credentials: JournalistLogin): Observable<JwtResponse> {
-    return this.http.post<JwtResponse>(`${this.baseUrl}` + `/signin`, credentials , httpOptions);
+  signInJournalist(credentials: JournalistLogin) {
+    return this.http.post(`${this.baseUrl}` + `/login`, credentials , httpOptions);
   }
 
 

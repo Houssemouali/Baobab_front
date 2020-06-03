@@ -51,7 +51,7 @@ export class JListeComponent implements OnInit , AfterViewInit {
   private id: any;
   private role: any ;
   journaliste: JournalistSignup = new JournalistSignup(this.role);
-  private etat: 'valid';
+  private etat: 1;
 
   private a  ;
   constructor(private journalisteService: JournalistService,
@@ -183,18 +183,18 @@ export class JListeComponent implements OnInit , AfterViewInit {
 
   update(idUser: any) {
 
-    this.journalisteService.Update(this.journaliste.idUser,
+    this.journalisteService.Update(this.journaliste.id,
       {name: this.journaliste.name,
-        status: this.journaliste.status} ).subscribe(data => {
+        status: this.journaliste.is_active} ).subscribe(data => {
       console.log(data);
       this.journaliste = data as JournalistSignup;
     }); }
 
 
   updateJ(idUser: number) {
-    this.journalisteService.updateJ(this.journaliste.idUser,
+    this.journalisteService.updateJ(this.journaliste.id,
       {name: this.journaliste.name,
-        status: this.journaliste.status  = this.etat} ).subscribe(data => {
+        status: this.journaliste.is_active  = this.etat} ).subscribe(data => {
       console.log(data);
       this.journaliste = data as JournalistSignup;
       //  this._router.navigate(['/article_details']);

@@ -166,6 +166,7 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
 import { AllArticlesComponent } from './Journaliste/all-articles/all-articles.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './Journaliste/category/category.component';
+import { LoginUsersComponent } from './login-users/login-users.component';
 
 
 @core.NgModule({
@@ -321,6 +322,7 @@ import { CategoryComponent } from './Journaliste/category/category.component';
     AllArticlesComponent,
     NotfoundComponent,
     CategoryComponent,
+    LoginUsersComponent,
 
 
   ],

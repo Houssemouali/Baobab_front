@@ -25,6 +25,7 @@ export class JLoginComponent implements OnInit {
   testForm: FormGroup;
   submitted = false;
   journalist: JournalistLogin = new JournalistLogin();
+  journalistL:JournalistSignup=new JournalistSignup();
   @Input() j: JournalistLogin;
   //journalistes: Observable<JournalistLogin[]>;
 
@@ -36,7 +37,7 @@ export class JLoginComponent implements OnInit {
 
   ngOnInit() {
     this.testForm = this.fb.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
