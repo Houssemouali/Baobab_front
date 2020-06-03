@@ -46,7 +46,7 @@ export class TokenStorageService {
         this.roles.push(authority.authority);
       });
     }
-
+    console.log(sessionStorage.getItem(AUTHORITIES_KEY));
     return this.roles;
   }
 }
