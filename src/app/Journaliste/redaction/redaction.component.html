@@ -79,9 +79,9 @@
             <label class="col-sm-2 col-form-label">Category </label>
             <div class="col-sm-4">
               <div class="md-form mt-0">
-                <select class="browser-default custom-select" [(ngModel)]="article.category" name="categories"
+                <select class="browser-default custom-select" [(ngModel)]="article.category.cat_texts" name="categories"
                   id="categories">
-                  <option *ngFor="let cat of categories | async" [ngValue]="[cat.name]">{{cat.name}}</option>
+                  <option *ngFor="let cat of categories" [ngValue]="[cat.id]">{{cat.name}}</option>
                 </select>​
               </div>
             </div>
@@ -133,12 +133,13 @@
                 #timePicker
               ></mdb-time-picker>
             </div>
-
+<!-- [module]="{toolbar:{image:alerting()}}" -->
             <div id="quill">
               <h2>Redact article</h2>
               <quill-editor [(ngModel)]="article.content.content" [(ngModeloptions]="editorOptions" name="quilleditor"
                 [ngModelOptions]="{standalone: true}" (blur)="onEditorBlured($event)" (focus)="onEditorFocused($event)"
-                (ready)="onEditorCreated($event)" [style]="editorStyle" (change)="onContentChanged($event)" #content>
+                (ready)="onEditorCreated($event)" [style]="editorStyle" 
+                 (change)="onContentChanged($event)" #content>
               </quill-editor>
               {{editorContent}}
             </div>

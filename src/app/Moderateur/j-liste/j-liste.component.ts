@@ -50,7 +50,7 @@ export class JListeComponent implements OnInit , AfterViewInit {
   private editField: string;
   private id: any;
   private role: any ;
-  journaliste: JournalistSignup = new JournalistSignup(this.role);
+  journaliste: JournalistSignup = new JournalistSignup();
   private etat: 1;
 
   private a  ;
@@ -200,11 +200,6 @@ export class JListeComponent implements OnInit , AfterViewInit {
       //  this._router.navigate(['/article_details']);
     }); }
 
-  /*  update(id: number) {
-      this.journalisteService.Update(this.journaliste.id).subscribe(data => {
-        console.log(data);
-        this.journaliste = data as JournalistSignup;
-      }); }*/
 
   addNewRowAfter() {
     this.mdbTable.addRowAfter(1, {id: '2', first: 'Nowy', last: 'Row', handle: 'Kopytkowy'});

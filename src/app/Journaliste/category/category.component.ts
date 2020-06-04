@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/Category';
 import { LanguageService } from 'src/app/services/language.service';
 import { Language } from 'src/app/models/Language';
+import { Cat_texts } from 'src/app/models/cat_texts';
 
 @Component({
   selector: 'app-category',
@@ -13,8 +14,19 @@ export class CategoryComponent implements OnInit {
   editField: string;
   tableData: Array<any> = [];
   searchText: string;
-  category:Category=new Category();
+
+  @Input()category:Category;
+  categories:Category=new Category();
+  catchecked: Category = {}as Category;
+
+  //languagess:Language[];
+  @Input()cat_texts:Cat_texts;
+  catText:Cat_texts=new Cat_texts();
+
+  @Input()language: Language;
+  langSelected: Language = {} as Language;
   languagess:Language[];
+
   remove(id: any) {
     // this.updateEtat(this.id);
     this.tableData.push(this.tableData[id]);
@@ -39,10 +51,11 @@ export class CategoryComponent implements OnInit {
       });
     });
 
-    // this.languageService.getLanguageList().subscribe(datq=>{
-    //   console.log(datq);
-    // this.languagess=datq;
-    // })
+
+     this.languageService.getLanguageList().subscribe(datq=>{
+       console.log(datq);
+     this.languagess=datq;
+     })
   }
 
 
@@ -64,7 +77,7 @@ export class CategoryComponent implements OnInit {
   }
   addCategory(){
 
-  let language=this.category.cat_texts.lang_id.id;
+  let language=this.category.cat_texts.language.id;
   delete this.category.cat_texts;
 
   this.categryService.AddCategory(this.category).subscribe(data=>{

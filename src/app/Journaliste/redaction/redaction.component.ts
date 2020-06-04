@@ -16,6 +16,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import {ArticleCountry} from '../../models/ArtcileCountry';
 import { LanguageService } from 'src/app/services/language.service';
 import { IMyOptions, MDBDatePickerComponent, ClockPickerComponent } from 'ng-uikit-pro-standard';
+import { Cat_texts } from 'src/app/models/cat_texts';
 
 @Component({
   selector: 'app-redaction',
@@ -67,6 +68,8 @@ export class RedactionComponent implements OnInit {
   @Input()tags: Tags;
   tagss: Tags[];
 
+  @Input()cat_texts:Cat_texts;
+  //catText:Cat_texts=new Cat_texts();
 
   constructor( private countryService: CountryService,
      private articleService: ArticleService ,
@@ -204,4 +207,7 @@ export class RedactionComponent implements OnInit {
     //this.catchecked = new Category();
     this.langSelected=new Language();
   }
+  // alerting(){
+  //   alert("image upload");
+  // }
 }
