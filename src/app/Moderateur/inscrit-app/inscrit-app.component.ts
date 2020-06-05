@@ -50,7 +50,7 @@ export class InscritAppComponent implements OnInit {
   private editField: string;
   private id: any;
   private role: any;
-  journaliste: JournalistSignup = new JournalistSignup(this.role);
+  journaliste: JournalistSignup = new JournalistSignup();
   private etat: 'valid';
 
   private a;

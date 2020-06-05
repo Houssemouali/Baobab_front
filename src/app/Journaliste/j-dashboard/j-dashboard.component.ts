@@ -23,7 +23,7 @@ export class JDashboardComponent implements OnInit {
   private projects: any;
   private user: any;
   private role: string;
-  journaliste: JournalistSignup = new JournalistSignup(this.role);
+  journaliste: JournalistSignup = new JournalistSignup();
   private etat = 1;
 
 

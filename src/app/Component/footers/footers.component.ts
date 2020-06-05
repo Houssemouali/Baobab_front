@@ -40,7 +40,7 @@ export class FootersComponent implements OnInit , AfterViewInit {
 
 
   public dataRemote: CompleterData;
- journalist: JournalistSignup = new JournalistSignup(this.role);
+ journalist: JournalistSignup = new JournalistSignup();
   //  journalist: JournalistSignup = new JournalistSignup(this.username, this.password, this.nationality, this.numtel , this.role , this.dateNaissance, this.name)
 
   @Input() j: JournalistSignup;
@@ -162,7 +162,7 @@ export class FootersComponent implements OnInit , AfterViewInit {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getAuthorities();
-          this.router.navigate(['inscrit_app']);
+            this.router.navigate(['inscrit_app']);
         },
         error => { this.showWarning(); }
        /* error => {

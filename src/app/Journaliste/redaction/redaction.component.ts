@@ -42,9 +42,11 @@ export class RedactionComponent implements OnInit {
   articles: Article[];
 
   article: Article = new Article();
+  @Input()cat_texts:Cat_texts;
+  cate_texts:Cat_texts[];
 
   @Input()category: Category;
-  categories: Category[];
+  categoriess: Category[];
   catchecked: Category = {}as Category;
   
   cd: ContentDetails = new ContentDetails();
@@ -68,7 +70,7 @@ export class RedactionComponent implements OnInit {
   @Input()tags: Tags;
   tagss: Tags[];
 
-  @Input()cat_texts:Cat_texts;
+  //@Input()cat_texts:Cat_texts;
   //catText:Cat_texts=new Cat_texts();
 
   constructor( private countryService: CountryService,
@@ -172,24 +174,28 @@ export class RedactionComponent implements OnInit {
 
     //let tags: {id:number} [] = [{id: this.article.tags}];
     delete this.article.tags;
-   
+
+    let category:{id:number}[]=[this.article.category];
+    delete this.article.category;
+    
     // let languageArticles={id:this.article.content.languageArticle};
-    let content:{content:any,titre:any,languageArticle:any}[]=[{
+    let contents:{content:any,titre:any,lang_id:any}[]=
+    [{
       content:this.article.content.content,
       titre:this.article.content.titre,
-      languageArticle:{
-        id:this.article.content.languageArticle}
+      lang_id:this.article.content.languageArticle
     }];
     delete this.article.content;
 
-    let usr_id:{}[]=[{
-      id:this.article.user.id
-    }];
-    delete this.article.user;
+    //let writer_id:this.article.user.id
+    
+    //delete this.article.user;
     //add language article
     //this.article['tags'] = tags;
     //this.article['country'] = countries;
-    //this.article['content'] = content;
+    
+    this.article['content'] = contents;
+    this.article['categories'] = category;
 
     this.articleService.AddArticle(this.article).subscribe(data => {
       var result=JSON.stringify(data);
@@ -204,7 +210,7 @@ export class RedactionComponent implements OnInit {
     this.countrySelected = new Countries();
     this.tagSelected = new Tags();
     //console.log(JSON.parse());
-    //this.catchecked = new Category();
+    this.catchecked = new Category();
     this.langSelected=new Language();
   }
   // alerting(){

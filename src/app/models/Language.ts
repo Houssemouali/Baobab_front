@@ -1,6 +1,6 @@
 export class Language {
     id: any;
-    languageName: any;
+    name: any;
     is_active:boolean;
     letters:string;
    

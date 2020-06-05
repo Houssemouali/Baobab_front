@@ -70,7 +70,7 @@
               <div class="md-form mt-0">
                 <select class="browser-default custom-select" [(ngModel)]="article.content.languageArticle"
                   name="languages" #languages id="languages">
-                  <option *ngFor="let lang of languagess | async" [ngValue]="lang.id">{{lang.languageName}}</option>
+                  <option *ngFor="let lang of languagess " [ngValue]="lang.id">{{lang.name}}</option>
                 </select>
                 ​
               </div>
@@ -79,9 +79,9 @@
             <label class="col-sm-2 col-form-label">Category </label>
             <div class="col-sm-4">
               <div class="md-form mt-0">
-                <select class="browser-default custom-select" [(ngModel)]="article.category.cat_texts" name="categories"
-                  id="categories">
-                  <option *ngFor="let cat of categories" [ngValue]="[cat.id]">{{cat.name}}</option>
+                <select class="browser-default custom-select" [(ngModel)]="article.category.cat_texts" name="categoriess"
+                  id="categoriess" #categoriess>
+                  <option *ngFor="let cat of categoriess" [ngValue]="[cat.id]">{{cat.name}}</option>
                 </select>​
               </div>
             </div>
@@ -144,7 +144,7 @@
               {{editorContent}}
             </div>
             <div class="row"> 
-            <button mdbbtn type="submit" class="btn btn-outline-success btn-rounded waves-effect button-sub">
+            <button mdbbtn type="submit" cla ss="btn btn-outline-success btn-rounded waves-effect button-sub">
               <i class="far fa-paper-plane" aria-hidden="true"></i>Post 
             </button>
           </div>
