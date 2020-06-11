@@ -10,7 +10,7 @@ const httpOptions =
   providedIn: 'root'
 })
 export class CategoryService {
-  private baseUrl = 'http://localhost:8000/api/attribs/categories';
+  private baseUrl = 'http://localhost:8000/api/attribs/categories?lang=1';
   category:  Category ;
   constructor(private http: HttpClient) { }
   

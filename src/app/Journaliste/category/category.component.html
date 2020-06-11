@@ -1,4 +1,4 @@
-<app-menu-j> </app-menu-j>
+<app-menu-mod> </app-menu-mod>
 <div class="container">
   <div class="row">
     <div class="col-md-12 mx-auto mt-5">
@@ -38,7 +38,7 @@
 
       </form>
     </div>
-    <div class="col-md-12 mx-auto text-center mt-5 vl">
+    <div class="col-md-12 mx-auto text-center mt-5">
       <!-- Editable table -->
       <div class="card">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Categories list:</h3>
@@ -59,7 +59,7 @@
                   <th class="text-center">Sort</th>  -->
                 <th class="text-center">Remove</th>
               </tr>
-              <tr *ngFor="let data of search(); let id = index">
+              <tr *ngFor="let data of search(); let i = index">
                 <td contenteditable="true" (keyup)="changeValue(id, 'id', $event)">{{data.id}}</td>
                 <div style="margin: auto; " *ngFor="let cat of data.cat_texts ">
                   <td class="col-ctr" contenteditable="true" (keyup)="changeValue(id, 'name', $event)">{{cat.name}}</td>

@@ -15,7 +15,7 @@
 
       <mdb-card>
 
-        <mdb-card-header class="deep-blue-gradient white-text text-center py-4">
+        <mdb-card-header class="cloudy-knoxville-gradient grey-text text-center py-4">
           <h5>
             <strong>Add New Article:</strong>
           </h5>
@@ -39,7 +39,7 @@
 
             <div class="form-group row">
               <!-- Material input -->
-              <label for="pays" class="col-sm-2 col-form-label">Pays </label>
+              <label for="pays" class="col-sm-2 col-form-label">Country </label>
               <div class="col-sm-4">
                 <div class="md-form mt-0">
                   <select class="browser-default custom-select"name="pays"  #pays name="pays"
@@ -57,8 +57,8 @@
                 <div class="md-form mt-0">
                   <select class="browser-default custom-select"name="tags"  #tags name="tags"
                           id="tags">
-                    <option> aaaa</option>
-                    <option> fqdfq</option>
+                    <!-- <option> aaaa</option>
+                    <option> fqdfq</option> -->
 
                   </select>
 
@@ -68,22 +68,36 @@
 
               <div class="col-sm-4">
                 <div class="md-form mt-0">
-                  <select class="browser-default custom-select" name="categorie"  #categorie name="categorie"
+                  <select class="browser-default custom-select" name="categorie" #categorie name="categorie"
                           id="categorie">
-<!--
-                    [(ngModel)]=".organisme_assurance"
--->
 
-                    <option  *ngFor="let categ of categorys" [value]="categ.id" >{{categ.name |uppercase}}</option>
+
+                    <option  *ngFor="let categ of cats" [value]="categ.id" >{{categ.cat_texts.name |uppercase}}</option>
+                    <option> finance</option>
+                    <option> lifestyle</option>
+                    <option> Entreprise</option>
                   </select>
 
                 </div>
 
 </div>
+<!-- <label class="col-sm-8 col-form-label">language </label>
+<div class="col-sm-4">
+  <div class="md-form mt-0">
+    <select class="browser-default custom-select" [(ngModel)]="article.content.languageArticle"
+      name="languages" #languages id="languages">
+      <option *ngFor="let lang of languagess " [ngValue]="lang.id">{{lang.name}}</option>
+    </select>               ​
+  </div>
+</div> -->
 
             </div>
 
-
+            <div class="row">
+              <div class="col-md-6 mx-auto mt-5">
+                <mdb-date-picker name="mydate" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>
+              </div>
+            </div>          
 
             <div id="quill">
               <h2>Redact article</h2>
@@ -93,15 +107,8 @@
                             (focus)="onEditorFocused($event)"
                             (ready)="onEditorCreated($event)"
                             (change)="onContentChanged($event)"></quill-editor>
-              {{editorContent}}
+              <!-- {{editorContent}} -->
             </div>
-            <div class="row">
-              <div class="col-md-6 mx-auto mt-5">
-                <h4 class="text-center">Basic Example</h4>
-                <mdb-date-picker name="mydate" [placeholder]="'Selected date'" [(ngModel)]="model" required></mdb-date-picker>
-              </div>
-            </div>
-            <!-- Basic Example -->
           
 
           </form>

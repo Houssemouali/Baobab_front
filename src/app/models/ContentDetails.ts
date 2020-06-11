@@ -4,14 +4,14 @@ export class ContentDetails {
     id: any;
     article_id:any;
     content: any;
-    titre: any;
-    languageArticle: Language;
+    title: any;
+    lang_id: Language;
     is_active:boolean;
     is_ready:boolean;
     language:Language;
 
     constructor() {
-        this.titre = '';
+        this.title = '';
         
         }
 }

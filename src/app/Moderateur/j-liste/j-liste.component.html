@@ -13,7 +13,8 @@
       <div class="card card-cascade narrower mt-5">
 
         <!--Card image-->
-        <div class="view view-cascade gradient-card-header heavy-rain-gradient narrower py-4 mx-4 mb-3 d-flex justify-content-center align-items-center">
+        <div
+          class="view view-cascade gradient-card-header heavy-rain-gradient narrower py-4 mx-4 mb-3 d-flex justify-content-center align-items-center">
 
           <h4 class="white-text font-weight-bold text-uppercase mb-0">Inscription</h4>
 
@@ -23,7 +24,8 @@
         <div class="row  d-flex align-items-center justify-content-center">
           <div class="col-md-6 mx-auto">
             <div class="md-form">
-              <input type="search" [(ngModel)]="searchText" id="search" class="form-control" mdbInputDirective [mdbValidate]="false">
+              <input type="search" [(ngModel)]="searchText" id="search" class="form-control" mdbInputDirective
+                [mdbValidate]="false">
               <label for="search">Search data</label>
             </div>
           </div>
@@ -36,71 +38,73 @@
 
             <!--Table head-->
             <thead>
-            <tr>
-              <!-- <th>id
+              <tr>
+                <!-- <th>id
                  <mdb-icon icon="sort" (click)="sortBy('id')"></mdb-icon>
                </th>-->
-              <th>Name
-                <mdb-icon fas icon="sort" (click)="sortBy('name')"></mdb-icon>
-              </th>
-              <th>Surname
-                <mdb-icon fas icon="sort" (click)="sortBy('surname')"></mdb-icon>
-              </th>
+                <th>Name
+                  <mdb-icon fas icon="sort" (click)="sortBy('name')"></mdb-icon>
+                </th>
+                <th>Surname
+                  <mdb-icon fas icon="sort" (click)="sortBy('surname')"></mdb-icon>
+                </th>
 
-              <th>Naissance<mdb-icon fas icon="sort" (click)="sortBy('dateNaissance')"></mdb-icon>
-              </th>
+                <th>Naissance<mdb-icon fas icon="sort" (click)="sortBy('dateNaissance')"></mdb-icon>
+                </th>
 
 
-              <th>Numéro
-                <mdb-icon fas icon="sort" (click)="sortBy('numtel')"></mdb-icon>
-              </th>
-              <!-- <th>Email
+                <th>Numéro
+                  <mdb-icon fas icon="sort" (click)="sortBy('numtel')"></mdb-icon>
+                </th>
+                <!-- <th>Email
                  <mdb-icon fas icon="sort" (click)="sortBy('email')"></mdb-icon>
                </th>-->
-              <th>Nationality
-                <mdb-icon fas icon="sort" (click)="sortBy('nationality')"></mdb-icon>
-              </th>
-              <th>Message
-                <mdb-icon fas icon="sort"(click)="sortBy('motivationtext')"></mdb-icon>
-              </th>
-              <th>Actions
-              </th>
-            </tr>
+                <th>Nationality
+                  <mdb-icon fas icon="sort" (click)="sortBy('nationality')"></mdb-icon>
+                </th>
+                <th>Message
+                  <mdb-icon fas icon="sort" (click)="sortBy('motivationtext')"></mdb-icon>
+                </th>
+                <th>Actions
+                </th>
+              </tr>
             </thead>
             <!--Table head-->
 
             <!--Table body-->
             <tbody>
-            <tr #list *ngFor="let data of search(); let i = index">
+              <tr #list *ngFor="let data of search(); let i = index">
 
-              <!--   <th *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex" scope="row">{{data.id }}</th>
+                <!--   <th *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex" scope="row">{{data.id }}</th>
                  <th *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex" scope="row">{{data.idUser }}</th>-->
-              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.name}}</td>
-              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.surname}} </td>
+                <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.name}}</td>
+                <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.surname}} </td>
 
-              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.dateNaissance | date}} </td>
+                <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.dateNaissance | date}} </td>
 
-              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.numtel}} </td>
-              <!--
+                <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.numtel}} </td>
+                <!--
                             <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.email}} </td>
               -->
-              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.nationality}} </td>
-              <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.motivationtext | slice : 0:50}} </td>
-              <td >
-                <span>
-<!--                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(data.id) ">Accept</button>-->
-                  <!--
+                <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.nationality}} </td>
+                <td *ngIf="i+1 >= firstVisibleIndex && i+1 <= lastVisibleIndex">{{data.motivationtext | slice : 0:50}}
+                </td>
+                <td>
+                  <span>
+                    <!--                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(data.id) ">Accept</button>-->
+                    <!--
                                   <button type="button" mdbBtn color="green" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#basicExample" (click)="update( data.idUser ) "   mdbWavesEffect><i class="fas fa-check"></i>   </button>
                   -->
- <a class="btn-floating  light-green mx-1"  (click)="showFrame(frame, data.motivationtext , data.name , data.surname)">
-          <i class="fas fa-info"> </i>
-        </a>
+                    <a class="btn-floating  light-green mx-1"
+                      (click)="showFrame(frame, data.motivationtext , data.name , data.surname)">
+                      <i class="fas fa-info"> </i>
+                    </a>
 
-                  <!--
+                    <!--
                             <button type="button" mdbBtn color="default" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#basicExample"   (click)="showFrame(frame, data.motivationtext , data.name , data.surname)"  mdbWavesEffect><i class="fas fa-info"> </i>   </button>
                   -->
 
-                  <!--                  <button
+                    <!--                  <button
                     type="button"
                     mdbBtn
                     color="default"
@@ -108,20 +112,20 @@
                     data-toggle="modal"
                     data-target="#basicExample"   mdbWavesEffect
                     (click)="showFrame(frame, data.motivationtext , data.name , data.surname)">-->
-                  <!--
+                    <!--
                     routerLink="/article_categorie/{{data.idUser}}
                   -->
 
-                  <!--   <button type="button" mdbBtn color="default" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#basicExample" (click)="removeRow1()" mdbWavesEffect>2    </button></span>
+                    <!--   <button type="button" mdbBtn color="default" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#basicExample" (click)="removeRow1()" mdbWavesEffect>2    </button></span>
                      <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove('data.id')">Remove</button>-->
-                  <!--
+                    <!--
                                   <a class="badge badge-warning" click="/article_details/{{ data.id }}">
                                     Edit
                                   </a>-->
 
-                </span>
-              </td>
-            </tr>
+                  </span>
+                </td>
+              </tr>
             </tbody>
             <!--Table body-->
           </table>
@@ -140,7 +144,8 @@
             <ul class="pagination pagination-circle pg-purple mb-0">
 
               <!--First-->
-              <li class="page-item clearfix d-none d-md-block" (click)="firstPage()" [ngClass]="{disabled: activePage == firstPageNumber}">
+              <li class="page-item clearfix d-none d-md-block" (click)="firstPage()"
+                [ngClass]="{disabled: activePage == firstPageNumber}">
                 <a class="page-link">First</a>
               </li>
 
@@ -153,7 +158,8 @@
               </li>
 
               <!--Numbers-->
-              <li *ngFor="let page of paginators; let i = index" class="page-item" [ngClass]="{active: i+1 == activePage}">
+              <li *ngFor="let page of paginators; let i = index" class="page-item"
+                [ngClass]="{active: i+1 == activePage}">
                 <a class="page-link waves-light" (click)="changePage($event)" mdbWavesEffect>{{page}}</a>
               </li>
 
@@ -168,7 +174,8 @@
               </li>
 
               <!--First-->
-              <li class="page-item clearfix d-none d-md-block" (click)="lastPage()" [ngClass]="{disabled: activePage == lastPageNumber}">
+              <li class="page-item clearfix d-none d-md-block" (click)="lastPage()"
+                [ngClass]="{disabled: activePage == lastPageNumber}">
                 <a class="page-link">Last</a>
               </li>
 
@@ -191,8 +198,8 @@
 
 
 
-<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
   <!--<div class="modal-dialog modal-notify modal-teal modal-side modal-top-right" role="document">    &lt;!&ndash;Content&ndash;&gt;
     <div class="modal-content">
       &lt;!&ndash;Header&ndash;&gt;
@@ -226,10 +233,10 @@
         <!-- <a type="button" mdbBtn color="success" class="waves-effect" mdbWavesEffect>Get it now
            <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
          </a>-->
-        <a type="button" mdbBtn color="success" outline="true" class="waves-effect" mdbWavesEffect (click)="frame.hide()">OK</a>
+        <a type="button" mdbBtn color="success" outline="true" class="waves-effect" mdbWavesEffect
+          (click)="frame.hide()">OK</a>
       </div>
     </div>
     <!--/.Content-->
   </div>
 </div>
-

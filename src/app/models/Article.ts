@@ -15,19 +15,19 @@ export class Article {
     is_ready:any;
     //created_at:Date;
     //updated_at:Date;
-  content: ContentDetails;
+    contents: ContentDetails;
     user: JournalistSignup;
     tags: Tags;
-
     //link: string;
     //status: any;
   //articleCountry: ArticleCountry;
   country: Countries;
   //articletags: ArticleTags;
-  category: Category;
+  categories: Category;
   //article_content: ArticleContent;
 
   constructor() {
-    this.content = new ContentDetails();
+    this.contents = new ContentDetails();
+    this.categories=new Category();
   }
 }

@@ -12,7 +12,7 @@ const httpOptions =
 })
 export class CountryService {
 
-  private baseUrl = 'http://localhost:8080/api/country/';
+  private baseUrl = 'http://localhost:8000/api/attribs/country/';
   countrys:  Countries ;
   handleErrors: any;
   constructor(private http: HttpClient) { }

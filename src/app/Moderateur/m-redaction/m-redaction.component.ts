@@ -5,6 +5,8 @@ import {Countries} from '../../models/Countries';
 import {Category} from '../../models/Category';
 import {CategoryService} from '../../services/category.service';
 import { MDBDatePickerComponent, IMyOptions } from 'ng-uikit-pro-standard';
+import { Language } from 'src/app/models/Language';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-m-redaction',
@@ -23,14 +25,20 @@ export class MRedactionComponent implements OnInit {
 
   @Input() art: Article;
   articles: Article[];
+
   @Input()countries: Countries;
   countrys: Countries[];
   optionsSelect: Array<any>;
   @Input() cat: Category;
-  categorys: Category[];
+  cats: Category[];
   f: FormGroup;
 
-  constructor( private categoryService : CategoryService) {}
+  @Input()language: Language;
+  langSelected: Language = {} as Language;
+  languagess:Language[];
+
+  constructor( private categoryService : CategoryService,
+    private langService:LanguageService) {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -46,8 +54,15 @@ export class MRedactionComponent implements OnInit {
       { value: 'Other stuff', label: 'Other stuff' },
     ];
     this.categoryService.getCategoryList().subscribe(dat => {
-      this.categorys = dat;  console.log(dat) ;
+      this.categorys = dat;
+        console.log(dat) ;
     });
+
+
+    this.langService.getLanguageList().subscribe(datq=>{
+      console.log(datq);
+      this.languagess=datq;
+    })  
   }
 
   onEditorBlured(quill) {

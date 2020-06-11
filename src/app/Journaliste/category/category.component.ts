@@ -50,8 +50,6 @@ export class CategoryComponent implements OnInit {
           console.log('category:', element.cat_texts);
       });
     });
-
-
      this.languageService.getLanguageList().subscribe(datq=>{
        console.log(datq);
      this.languagess=datq;

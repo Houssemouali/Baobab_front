@@ -62,9 +62,9 @@ export class JLoginComponent implements OnInit {
     if (this.testForm.valid) {
       this.journalistService.signInJournalist(this.journalist).subscribe(
         data => {
-          this.tokenStorage.saveToken(data.accessToken);
-          this.tokenStorage.saveUsername(data.username);
-          this.tokenStorage.saveAuthorities(data.authorities);
+          // this.tokenStorage.saveToken(data.accessToken);
+          // this.tokenStorage.saveUsername(data.username);
+          // this.tokenStorage.saveAuthorities(data.authorities);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getAuthorities();

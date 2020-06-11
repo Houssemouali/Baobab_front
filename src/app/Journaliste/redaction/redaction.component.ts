@@ -17,6 +17,7 @@ import {ArticleCountry} from '../../models/ArtcileCountry';
 import { LanguageService } from 'src/app/services/language.service';
 import { IMyOptions, MDBDatePickerComponent, ClockPickerComponent } from 'ng-uikit-pro-standard';
 import { Cat_texts } from 'src/app/models/cat_texts';
+import { JournalistSignup } from 'src/app/models/Journalist-signup';
 
 @Component({
   selector: 'app-redaction',
@@ -33,6 +34,8 @@ export class RedactionComponent implements OnInit {
     height :'300px'
   };
 
+  //public selectedCategory: Category;
+
   @ViewChild('input') input: ElementRef;
   @ViewChild('datePicker') datePicker: MDBDatePickerComponent;
   @ViewChild('timePicker') timePicker: ClockPickerComponent;
@@ -46,8 +49,8 @@ export class RedactionComponent implements OnInit {
   cate_texts:Cat_texts[];
 
   @Input()category: Category;
-  categoriess: Category[];
   catchecked: Category = {}as Category;
+  cats: Category[];
   
   cd: ContentDetails = new ContentDetails();
   contentdetails: ContentDetails = new ContentDetails();
@@ -70,6 +73,8 @@ export class RedactionComponent implements OnInit {
   @Input()tags: Tags;
   tagss: Tags[];
 
+  //cat_ch:Category[];
+  users_id: JournalistSignup[];
   //@Input()cat_texts:Cat_texts;
   //catText:Cat_texts=new Cat_texts();
 
@@ -115,7 +120,7 @@ export class RedactionComponent implements OnInit {
     });
       this.categoryService.getCategoryList().subscribe(dat => {
         console.log(dat);
-        this.categories = dat;
+        this.cats = dat;
       });
       this.langService.getLanguageList().subscribe(datq=>{
         console.log(datq);
@@ -164,43 +169,45 @@ export class RedactionComponent implements OnInit {
     //   this.article.countries = this.countrySelected;
     //   console.log(this.article.countries);
     // });
-    // this.categoryService.getCategory(this.article.categories).subscribe(res => {
-    //   this.catchecked = res;
-    //   this.article.categories = this.catchecked;
-    //   console.log("categories===>"+JSON.stringify(this.article.categories));
-    // });
+    //  this.categoryService.getCategory(this.article.categories).subscribe(res => {
+    //    this.catchecked = res;
+    //    this.article.categories = this.catchecked;
+    //    console.log("categories===>"+JSON.stringify(this.article.categories));
+    //  });
     //let countries: {id: number} [] = [{id: this.article.country}];
     delete this.article.country;
 
     //let tags: {id:number} [] = [{id: this.article.tags}];
     delete this.article.tags;
 
-    let category:{id:number}[]=[this.article.category];
-    delete this.article.category;
+
+    //let categori =[this.article.categories.cat_texts.id];
+    //delete this.article.categories.cat_texts.id;
     
     // let languageArticles={id:this.article.content.languageArticle};
-    let contents:{content:any,titre:any,lang_id:any}[]=
+    let contents:[{content:any,title:any,lang_id:any}]=
     [{
-      content:this.article.content.content,
-      titre:this.article.content.titre,
-      lang_id:this.article.content.languageArticle
+      content:this.article.contents.content,
+      title:this.article.contents.title,
+      lang_id:this.article.contents.lang_id
     }];
-    delete this.article.content;
+    //delete this.article.content;
 
-    //let writer_id:this.article.user.id
-    
+    let writerid=2;
     //delete this.article.user;
+
     //add language article
     //this.article['tags'] = tags;
     //this.article['country'] = countries;
     
-    this.article['content'] = contents;
-    this.article['categories'] = category;
-
+    this.article['contents'] = contents;
+    //this.article['category'] = categori;
+    this.article['writer_id']=writerid;
+    //this.article['writer_id']=writer_id;
+    //this.article['writer_id']=writer_id;
     this.articleService.AddArticle(this.article).subscribe(data => {
-      var result=JSON.stringify(data);
+    var result=JSON.stringify(data);
       console.log('article insertion', result);
-      //this.article.categories=data as Category
       this.article = data as Article;
       JSON.stringify(data);
       console.log('aaa' , this.article);
@@ -210,8 +217,9 @@ export class RedactionComponent implements OnInit {
     this.countrySelected = new Countries();
     this.tagSelected = new Tags();
     //console.log(JSON.parse());
-    this.catchecked = new Category();
+    //this.catchecked = new Category();
     this.langSelected=new Language();
+    //this.users_id=new JournalistSignup();
   }
   // alerting(){
   //   alert("image upload");
