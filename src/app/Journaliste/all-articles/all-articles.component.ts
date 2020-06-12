@@ -50,10 +50,10 @@ export class AllArticlesComponent implements OnInit {
       Array.from(next).forEach((element: any) => {
         this.tableData.push({
           id: (element.id).toString(),
-          article:(element.article).toString()
-          // publish_date:element.publish_date,
-          // title:element.title,
-          // content:element.content
+          article:(element.article).toString(),
+           publish_date:element.publish_date,
+           title:element.title,
+           content:element.content
          // writer_id:element.
     });
 

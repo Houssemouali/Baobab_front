@@ -8,7 +8,7 @@ const httpOptions =
   providedIn: 'root'
 })
 export class TagService {
-  private baseUrl = 'http://localhost:8000/api/attribs/tag/';
+  private baseUrl = 'http://localhost:8000/api/attribs/tags/';
   tags:  Tags ;
   handleErrors: any;
   constructor(private http: HttpClient) { }

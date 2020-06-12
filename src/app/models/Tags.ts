@@ -1,4 +1,4 @@
 export class Tags {
     id: any;
-  libelle: string;
+  name: string;
 }

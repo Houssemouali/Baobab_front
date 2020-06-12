@@ -1,4 +1,5 @@
 import {Language} from './Language';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 export class ContentDetails {
     id: any;

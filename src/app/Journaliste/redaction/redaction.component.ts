@@ -77,7 +77,8 @@ export class RedactionComponent implements OnInit {
   users_id: JournalistSignup[];
   //@Input()cat_texts:Cat_texts;
   //catText:Cat_texts=new Cat_texts();
-
+  minDate = new Date();
+  maxDate = "2090-12-12";
   constructor( private countryService: CountryService,
      private articleService: ArticleService ,
      private tagService: TagService,
@@ -191,8 +192,11 @@ export class RedactionComponent implements OnInit {
       title:this.article.contents.title,
       lang_id:this.article.contents.lang_id
     }];
+    
     //delete this.article.content;
-
+    let publish_dates=this.article.publish_date;
+    //publish_date=this.article.publish_date;
+    
     let writerid=2;
     //delete this.article.user;
 
@@ -202,7 +206,8 @@ export class RedactionComponent implements OnInit {
     
     this.article['contents'] = contents;
     //this.article['category'] = categori;
-    this.article['writer_id']=writerid;
+    this.article['writer_id'] = writerid;
+    this.article['publish_date']=publish_dates;
     //this.article['writer_id']=writer_id;
     //this.article['writer_id']=writer_id;
     this.articleService.AddArticle(this.article).subscribe(data => {

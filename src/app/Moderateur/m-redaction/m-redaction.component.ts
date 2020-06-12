@@ -54,7 +54,7 @@ export class MRedactionComponent implements OnInit {
       { value: 'Other stuff', label: 'Other stuff' },
     ];
     this.categoryService.getCategoryList().subscribe(dat => {
-      this.categorys = dat;
+      this.cats = dat;
         console.log(dat) ;
     });
 

@@ -8,7 +8,7 @@ import {ArticleContent} from './Article_content';
 import {ArticleCountry} from './ArtcileCountry';
 
 export class Article {
-  id: any;
+    id: any;
     publish_date: Date;
     writer_id:any;
     is_active:any;
@@ -29,5 +29,7 @@ export class Article {
   constructor() {
     this.contents = new ContentDetails();
     this.categories=new Category();
+    this.tags=new Tags();
+    this.country=new Countries();
   }
 }
