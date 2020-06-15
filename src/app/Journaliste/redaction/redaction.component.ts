@@ -79,6 +79,8 @@ export class RedactionComponent implements OnInit {
   //catText:Cat_texts=new Cat_texts();
   minDate = new Date();
   maxDate = "2090-12-12";
+  TagoptionsSelect: Array<any>;
+
   constructor( private countryService: CountryService,
      private articleService: ArticleService ,
      private tagService: TagService,
@@ -132,6 +134,14 @@ export class RedactionComponent implements OnInit {
 
   get f() {
     return this.articleform.controls;
+  }
+  getArrayOfTags(event: any) {
+    this.tagService.getTagList().subscribe(da => {
+      console.log(da);
+      this.tagss = da;
+    });
+    console.log(event);
+
   }
 
   onEditorBlured(quill) {
@@ -194,7 +204,7 @@ export class RedactionComponent implements OnInit {
     }];
     
     //delete this.article.content;
-    let publish_dates=this.article.publish_date;
+    let publish_date=this.article.publish_date;
     //publish_date=this.article.publish_date;
     
     let writerid=2;
@@ -207,7 +217,7 @@ export class RedactionComponent implements OnInit {
     this.article['contents'] = contents;
     //this.article['category'] = categori;
     this.article['writer_id'] = writerid;
-    this.article['publish_date']=publish_dates;
+    this.article['publish_date'] = publish_date;
     //this.article['writer_id']=writer_id;
     //this.article['writer_id']=writer_id;
     this.articleService.AddArticle(this.article).subscribe(data => {
@@ -217,6 +227,7 @@ export class RedactionComponent implements OnInit {
       JSON.stringify(data);
       console.log('aaa' , this.article);
       console.log(JSON.stringify(data));
+      console.log('publish_date=>',this.article.publish_date)
     });
     this.article = new Article();
     this.countrySelected = new Countries();

@@ -81,8 +81,16 @@
                 </select>​
               </div>
             </div>
-
-
+            <!--Multiple select-->
+            <!-- <div class="row">
+              <div class="col-md-6 mx-auto">
+                <h4 class="text-center">multiple tags</h4>
+                <mdb-select [options]="optionsSelect" [multiple]="true" [filterEnabled]="true" (changed)="selectChanged($event)" (opened)="selectOpened($event)"
+                  (closed)="selectClosed($event)" (selected)="optionSelected($event)" (deselected)="optionDeselected($event)" (noOptionsFound)="noOptionsFound($event)"
+                  placeholder="Choose your option"></mdb-select>
+                <label>Example label</label>
+              </div>
+            </div> -->
             <!-- <label  class="col-sm-2 col-form-label">Tags </label>
             <div class="col-sm-4">
                <div class="md-form mt-0">
@@ -104,7 +112,13 @@
             </div> 
 ​             -->
 
-           
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <h4 class="text-center">Array of selected values</h4>
+    <mdb-select (ngModelChange)="getArrayOfTags($event)" [(ngModel)]="article.tags" [options]="dateOptionsSelect" [multiple]="true"
+      placeholder="Choose tag"></mdb-select>
+  </div>
+</div>
            
 <label  class="col-sm-2 col-form-label">Schedule :</label>
             <div class="md-form mdb-date-time">
@@ -114,23 +128,23 @@
                 class="form-control date-time picker-opener"
                 data-open="picker2"
                 placeholder="Pick Date and Time"
-                type="datetime"
-                [(ngModel)]="article.publish_date"
-                name="publish_date"
-                [value]="publish_date"
-                #publish_date
-                required
+                type="text"
+                 required
               />
               <mdb-date-picker
                 (dateChanged)="onDateChange($event)"
                 [options]="myDatePickerOptions"
                 #datePicker
+                name="publish_date"
+                #publish_date
+                [(ngModel)]="article.publish_date"
                 disableUntil="{ year: this.date.getFullYear(), month: this.date.getMonth() + 1, day: this.date.getDate() }"
               ></mdb-date-picker>
               <mdb-time-picker
                 (timeChanged)="onTimeChange($event)"
                 [buttonLabel]="'Done'"
                 [twelvehour]="false"
+                [(ngModel)]="article.publish_date"
                 #timePicker
               ></mdb-time-picker>
             </div>
